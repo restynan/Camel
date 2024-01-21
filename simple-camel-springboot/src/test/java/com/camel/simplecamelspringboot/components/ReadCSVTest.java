@@ -14,30 +14,32 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @UseAdviceWith
 @CamelSpringBootTest
-public class LegacyFileRouteTest {
+public class ReadCSVTest {
     @Autowired
     CamelContext context;
 
     @EndpointInject("mock:result")
     protected MockEndpoint mockEndpoint;
 
-// Mocking only the destination
+    @Autowired
+    ProducerTemplate producerTemplate;
     @Test
-    public void testLegacyFileRoute() throws Exception {
+    public void testFileByMockingFromEndPoint() throws Exception{
         //Set up the mock
-        String expectedBody ="This is an input file that will be processed and moved to output file";
+        String expectedBody ="OutboundAddress(name=Mike, concatenatedAddress= 111 Toronto ON MG789)";
         mockEndpoint.expectedBodiesReceived(expectedBody);
         mockEndpoint.expectedMinimumMessageCount(1);
 
         // Tweak the route definition
-        AdviceWith.adviceWith(context, "legacyFileMoveRouteId", routeBuilder ->{
+        AdviceWith.adviceWith(context, "legacyFileMovedCSVFile", routeBuilder ->{
+            routeBuilder.replaceFromWith("direct:mockStart");
             routeBuilder.weaveByToUri("file:*").replace().to(mockEndpoint);
         });
-       // Start the context and validate is mock asserted
+        // Start the context and validate is mock asserted
         context.start();
+        producerTemplate.sendBody("direct:mockStart","name,house_number,city,province,postal_code\n" +
+                "Mike,111,Toronto,ON,MG789");
         mockEndpoint.assertIsSatisfied();
+
     }
-
-    //mock the source
-
 }
