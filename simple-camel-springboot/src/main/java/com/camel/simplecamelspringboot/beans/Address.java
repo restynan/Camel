@@ -8,6 +8,6 @@ public class Address {
     private String houseNumber;
     private String city;
     private String province;
-    private String postCode;
+    private String postalCode;
 
 }

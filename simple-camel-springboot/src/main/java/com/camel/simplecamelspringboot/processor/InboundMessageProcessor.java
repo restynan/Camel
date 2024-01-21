@@ -21,7 +21,7 @@ public class InboundMessageProcessor implements Processor {
         concatenatedAddress.append(" "+ address.getHouseNumber());
         concatenatedAddress.append(" "+ address.getCity());
         concatenatedAddress.append(" "+ address.getProvince());
-        concatenatedAddress.append(" "+ address.getPostCode());
+        concatenatedAddress.append(" "+ address.getPostalCode());
 
         return concatenatedAddress.toString();
     }

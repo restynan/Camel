@@ -1,4 +1,4 @@
-package com.camel.simplecamelspringboot.components;
+package com.camel.simplecamelspringboot.routes;
 
 import org.apache.camel.test.spring.junit5.CamelSpringBootTest;
 import org.apache.camel.test.spring.junit5.UseAdviceWith;

@@ -1,4 +1,4 @@
-package com.camel.simplecamelspringboot.components;
+package com.camel.simplecamelspringboot.routes;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.slf4j.Logger;

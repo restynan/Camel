@@ -1,8 +1,7 @@
-package com.camel.simplecamelspringboot.components;
+package com.camel.simplecamelspringboot.routes;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;
-import org.apache.camel.ProducerTemplate;
 import org.apache.camel.builder.AdviceWith;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.junit5.CamelSpringBootTest;

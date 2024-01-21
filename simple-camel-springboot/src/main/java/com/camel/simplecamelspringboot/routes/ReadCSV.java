@@ -1,4 +1,4 @@
-package com.camel.simplecamelspringboot.components;
+package com.camel.simplecamelspringboot.routes;
 
 import com.camel.simplecamelspringboot.processor.InboundMessageProcessor;
 import org.apache.camel.LoggingLevel;

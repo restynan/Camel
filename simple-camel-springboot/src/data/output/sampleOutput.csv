@@ -1,6 +1,4 @@
-[NameAddress(name=Mike, houseNumber=111, city=Toronto, province=ON, postCode=MG789)]
-[NameAddress(name=Peter, houseNumber=134, city=Irving, province=OT, postCode=TG123)]
-[NameAddress(name=John, houseNumber=593, city=Dallas, province=GH, postCode=FD482)]
 OutboundAddress(name=Mike, concatenatedAddress= 111 Toronto ON MG789)
 OutboundAddress(name=Peter, concatenatedAddress= 134 Irving OT TG123)
 OutboundAddress(name=John, concatenatedAddress= 593 Dallas GH FD482)
+OutboundAddress(name=John, concatenatedAddress= Peter Ajax Ontra JGR89)

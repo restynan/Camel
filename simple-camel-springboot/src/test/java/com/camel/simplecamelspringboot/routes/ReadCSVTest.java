@@ -1,4 +1,4 @@
-package com.camel.simplecamelspringboot.components;
+package com.camel.simplecamelspringboot.routes;
 
 import org.apache.camel.CamelContext;
 import org.apache.camel.EndpointInject;

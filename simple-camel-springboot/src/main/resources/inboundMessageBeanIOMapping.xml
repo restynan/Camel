@@ -8,7 +8,7 @@
             <field name="houseNumber" minOccurs="1" ></field>
             <field name="city" minOccurs="1" ></field>
             <field name="province" minOccurs="1" ></field>
-            <field name="postCode" minOccurs="1" ></field>
+            <field name="postalCode" minOccurs="1" ></field>
         </record>
 </stream>
 </beanio>
