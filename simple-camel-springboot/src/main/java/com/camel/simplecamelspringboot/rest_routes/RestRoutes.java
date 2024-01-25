@@ -29,10 +29,17 @@ public class RestRoutes extends RouteBuilder {
                 .routeId("processRouteId")
                 .log(LoggingLevel.INFO, "${body}")
                 .process(new InboundMessageProcessor())
-                .log(LoggingLevel.INFO,"Transformed Body:${body}")
+                .log(LoggingLevel.INFO, "Transformed Body:${body}")
                 .convertBodyTo(String.class)
-                .to("file:src/data/output?fileName=sampleOutput.csv&fileExist=append&appendChars=\\n");
+                .multicast()
+                    .to("file:src/data/output?fileName=sampleOutput.csv&fileExist=append&appendChars=\\n")
+                    .to("activemq:queue:addressQueue?exchangePattern=InOnly");
+
 //save data to database
 //                .to("jpa:"+ Address.class.getName());
+        // exchange pattern defines if you expect a response or not
+        // send to morethan one endpoint
+        // to("seda:toDB") asychronous processing
+        // wire tap , it will first send to to route and then to the wiretap route
     }
 }

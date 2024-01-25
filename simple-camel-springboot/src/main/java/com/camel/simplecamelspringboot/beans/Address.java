@@ -7,11 +7,13 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import org.hibernate.annotations.NamedQuery;
 
+import java.io.Serializable;
+
 @Data
 @Entity
 @Table(name = "ADDRESS")
 @NamedQuery(name="fetchAllRows", query="SELECT x FROM Address x")
-public class Address {
+public class Address implements Serializable {
     @Id
     private Long id;
     private String name;
