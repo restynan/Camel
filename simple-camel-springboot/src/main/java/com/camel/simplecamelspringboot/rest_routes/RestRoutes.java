@@ -15,13 +15,13 @@ public class RestRoutes extends RouteBuilder {
         restConfiguration()
                 .component("jetty")
                 .host("0.0.0.0")
-                .port(8080)
+                .port(8085)
                 .bindingMode(RestBindingMode.json)
                 .enableCORS(true);
 
         rest("masterclass")
                 .produces("application/json")
-                .post("address").type(Address.class)
+                .post("addressURI").type(Address.class)
                 .routeId("restRouteId")
                 .to("direct:process");
 
@@ -32,7 +32,7 @@ public class RestRoutes extends RouteBuilder {
                 .log(LoggingLevel.INFO,"Transformed Body:${body}")
                 .convertBodyTo(String.class)
                 .to("file:src/data/output?fileName=sampleOutput.csv&fileExist=append&appendChars=\\n");
-
-
+//save data to database
+//                .to("jpa:"+ Address.class.getName());
     }
 }

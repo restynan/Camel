@@ -13,6 +13,7 @@ public class InboundMessageProcessor implements Processor {
     public void process(Exchange exchange) throws Exception {
         Address address = exchange.getIn().getBody(Address.class);
         exchange.getIn().setBody( new OutboundAddress(address.getName(),returnOutboundAddress(address)));
+        exchange.getIn().setHeader("consumedId", address.getId());
 
 
     }

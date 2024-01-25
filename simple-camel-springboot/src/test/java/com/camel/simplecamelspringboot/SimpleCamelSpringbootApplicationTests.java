@@ -38,11 +38,6 @@ class SimpleCamelSpringbootApplicationTests {/*
 	}
 
 
-
-
-
-
-
 	@Test
 	void contextLoads() {
 	}

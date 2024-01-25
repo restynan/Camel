@@ -17,7 +17,7 @@ public class ReadCSV extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("file:src/data/input?fileName=sampleInput.csv")
+       /* from("file:src/data/input?fileName=sampleInput.csv")
                 .routeId("legacyFileMovedCSVFile")
                 .split(body().tokenize("\n",1,true))
                 .unmarshal(inboundDataFormat)
@@ -27,7 +27,7 @@ public class ReadCSV extends RouteBuilder {
                 .log(LoggingLevel.INFO, "${body}")
                .to("file:src/data/output?fileName=sampleOutput.csv&fileExist=append&appendChars=\\n")
                 .end();
-
+*/
 
 
         /*

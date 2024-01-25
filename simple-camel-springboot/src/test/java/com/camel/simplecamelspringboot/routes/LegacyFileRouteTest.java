@@ -6,9 +6,15 @@ import org.apache.camel.builder.AdviceWith;
 import org.apache.camel.component.mock.MockEndpoint;
 import org.apache.camel.test.spring.junit5.CamelSpringBootTest;
 import org.apache.camel.test.spring.junit5.UseAdviceWith;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @SpringBootTest
 @UseAdviceWith
@@ -36,7 +42,17 @@ public class LegacyFileRouteTest {
         context.start();
         mockEndpoint.assertIsSatisfied();
     }
+    @AfterEach()
+    public void tearDown() throws IOException {
+        File file = new File("./sampleInput.csv");
 
-    //mock the source
+        String path = file.getAbsolutePath();
+
+            boolean result = Files.deleteIfExists(Paths.get(path));
+            if (result) {
+                System.out.println(file.getName()+" is deleted!");
+            }
+
+    }
 
 }
